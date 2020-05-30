@@ -9,7 +9,7 @@
 @implementation NetworkingAPIKey
 
 +(NSString *)apiKey {
-    return self.apiKey;
+    return @"duN95xGsAyeiDWRYEFCKDdViSzQPwV2B";
 }
 
 @end
