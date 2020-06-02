@@ -13,6 +13,7 @@
 		A39510B055E575D4010B16DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3951756C9081C30BA5F0DA6 /* LaunchScreen.storyboard */; };
 		A39511609849438B0D1809CC /* NetworkingAPIKey.m in Sources */ = {isa = PBXBuildFile; fileRef = A39510798C92FB0120D45C86 /* NetworkingAPIKey.m */; };
 		A39512BA8D0CE6CBDBDC74E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3951062C1986386F865AC9D /* AppDelegate.m */; };
+		A39513084398BA991CC26280 /* AddPageViewController+Design.m in Sources */ = {isa = PBXBuildFile; fileRef = A3951F68D1ECD29263FEEB72 /* AddPageViewController+Design.m */; };
 		A3951363947D6F330DBE3B20 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3951729441589153A8CAB41 /* CollectionViewCell.m */; };
 		A3951422F1ADA65B91B4F0CA /* WeatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3951E01CC29053BD6A4DFC1 /* WeatherTests.m */; };
 		A395151660C2365519424698 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A39510806A6970F81502C116 /* main.m */; };
@@ -22,6 +23,7 @@
 		A3951662CE2D56B14319E43D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3951D1F88F70EAFAF0F0C90 /* Assets.xcassets */; };
 		A395186FE1E818BFF6326599 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A39514B3AB4480F9FCB44FD4 /* ViewController.m */; };
 		A3951D56D7C6FCF85F66B1D5 /* WeatherConditionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3951760BE6078619808F311 /* WeatherConditionView.m */; };
+		A3951D83715F4A8B7BE6B355 /* AddPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3951F370EC04756525739E1 /* AddPageViewController.m */; };
 		A3951F46E65ECF5C1648EEA3 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A39510D8129713E0934F3D48 /* SceneDelegate.m */; };
 		A3951F88C97476E68CC7BEE6 /* AnimatedLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = A395191420A10F6DEB3818D8 /* AnimatedLabelView.m */; };
 /* End PBXBuildFile section */
@@ -55,11 +57,13 @@
 		A39510806A6970F81502C116 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A39510D8129713E0934F3D48 /* SceneDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		A39511FC172EC0A0AE2CE173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		A39512819945DF0ECA7FFED4 /* AddPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPageViewController.h; sourceTree = "<group>"; };
 		A39512DD5FABDC1716F1F441 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A395135E36A0831A036F2C1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A39514B3AB4480F9FCB44FD4 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A39515817083EDE09B412280 /* NetworkingAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingAPIKey.h; sourceTree = "<group>"; };
 		A395163E1EDAE3489074B59E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		A395166BEA42C0FCADBE679F /* AddPageViewController+Design.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AddPageViewController+Design.h"; sourceTree = "<group>"; };
 		A39516DD84D4B8C959E63C07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		A3951729441589153A8CAB41 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		A3951760BE6078619808F311 /* WeatherConditionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherConditionView.m; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 		A3951D6EA4F94AF0DBABE3B7 /* WeatherConditionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherConditionView.h; sourceTree = "<group>"; };
 		A3951DA4DEDF21B93631417F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A3951E01CC29053BD6A4DFC1 /* WeatherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherTests.m; sourceTree = "<group>"; };
+		A3951F370EC04756525739E1 /* AddPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPageViewController.m; sourceTree = "<group>"; };
+		A3951F68D1ECD29263FEEB72 /* AddPageViewController+Design.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AddPageViewController+Design.m"; sourceTree = "<group>"; };
 		C1DF6CBDECD67014B894E51A /* Pods-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.release.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.release.xcconfig"; sourceTree = "<group>"; };
 		E5B29999026C1C9168F57EA0 /* Pods-Weather-WeatherUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather-WeatherUITests.debug.xcconfig"; path = "Target Support Files/Pods-Weather-WeatherUITests/Pods-Weather-WeatherUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F8371F481303701D6A805C99 /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +152,8 @@
 				A39510D8129713E0934F3D48 /* SceneDelegate.m */,
 				A3951821B85AC65A492EF5A3 /* ViewController.h */,
 				A39514B3AB4480F9FCB44FD4 /* ViewController.m */,
+				A39512819945DF0ECA7FFED4 /* AddPageViewController.h */,
+				A3951F370EC04756525739E1 /* AddPageViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -225,6 +233,8 @@
 				A3951D6EA4F94AF0DBABE3B7 /* WeatherConditionView.h */,
 				A395191420A10F6DEB3818D8 /* AnimatedLabelView.m */,
 				A3951D235B0D344BA0A2E333 /* AnimatedLabelView.h */,
+				A3951F68D1ECD29263FEEB72 /* AddPageViewController+Design.m */,
+				A395166BEA42C0FCADBE679F /* AddPageViewController+Design.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -465,6 +475,8 @@
 				A3951F88C97476E68CC7BEE6 /* AnimatedLabelView.m in Sources */,
 				A395153A2626CD36EF72FFB7 /* Networking.m in Sources */,
 				A39511609849438B0D1809CC /* NetworkingAPIKey.m in Sources */,
+				A3951D83715F4A8B7BE6B355 /* AddPageViewController.m in Sources */,
+				A39513084398BA991CC26280 /* AddPageViewController+Design.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

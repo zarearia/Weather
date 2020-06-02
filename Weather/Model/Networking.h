@@ -9,6 +9,7 @@
 
 @interface Networking : NSObject
 
--()
++(void)autoCompleteSearch: (NSString *)searchedText
+       response: (__strong NSArray **)responseArray;
 
 @end

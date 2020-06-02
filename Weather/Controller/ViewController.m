@@ -10,7 +10,6 @@
 #import "CollectionViewCell.h"
 #import "ViewController+Design.h"
 
-
 @interface ViewController ()
 
 @end
@@ -28,24 +27,6 @@
 
     self.view.backgroundColor = [UIColor redColor];
 
-    /*Test*/
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    [params setValue:@"duN95xGsAyeiDWRYEFCKDdViSzQPwV2B" forKey:@"apikey"];
-    [params setValue:@"Tokyo" forKey:@"q"];
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager GET:@"http://dataservice.accuweather.com/locations/v1/cities/autocomplete"
-             parameters:params
-             headers:nil
-             progress:nil
-             success:^(NSURLSessionTask *task, id responseObject) {
-                 NSLog(@"Success");
-                 NSLog(@"JSON: %@", responseObject);
-             }
-             failure:^(NSURLSessionTask *operation, NSError *error) {
-                 NSLog(@"failed");
-                 NSLog(@"Error: %@", error);
-             }];
 
     NSLog(@"Run");
 
