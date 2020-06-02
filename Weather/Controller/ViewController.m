@@ -10,7 +10,6 @@
 #import "CollectionViewCell.h"
 #import "ViewController+Design.h"
 
-
 @interface ViewController ()
 
 @end

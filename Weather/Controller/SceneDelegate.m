@@ -8,6 +8,7 @@
 
 #import "SceneDelegate.h"
 #import "ViewController.h"
+#import "AddPageViewController.h"
 
 
 @interface SceneDelegate ()
@@ -24,7 +25,11 @@
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
     self.window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene *) scene];
-    self.window.rootViewController = [[ViewController alloc] init];
+
+    /*TODO: Change This Part*/
+//    self.window.rootViewController = [[ViewController alloc] init];
+    self.window.rootViewController = [[AddPageViewController alloc] init];
+
     self.window.frame = UIScreen.mainScreen.bounds;
     [self.window makeKeyAndVisible];
 

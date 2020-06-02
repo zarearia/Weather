@@ -76,39 +76,18 @@
 
     /*exp: Top Half of the design*/
 
-    //View
-    UIView *currentWeatherView = [[UIView alloc] init];
-    currentWeatherView.translatesAutoresizingMaskIntoConstraints = NO;
-
-    //Stack
-    UIStackView *cityAndTimeStack = [[UIStackView alloc] init];
-    cityAndTimeStack.translatesAutoresizingMaskIntoConstraints = NO;
-    [currentWeatherView addSubview:cityAndTimeStack];
-    cityAndTimeStack.alignment = UIStackViewAlignmentLeading;
-    cityAndTimeStack.distribution = UIStackViewDistributionFillEqually;
-    cityAndTimeStack.axis = UILayoutConstraintAxisVertical;
-
-    //Stack SubViews
+    //City Name Label
     UILabel *cityNameLabel = [[UILabel alloc] init];
     cityNameLabel.text = @"Copenhagen";
-    [cityNameLabel setFont:[UIFont fontWithName:@"AppleSDGothicNeo-SemiBold" size:25]];
+    cityNameLabel.textAlignment = NSTextAlignmentCenter;
+    UITraitCollection *traitCollection = [UITraitCollection currentTraitCollection];
+    if(traitCollection.horizontalSizeClass == 1) {
+        [cityNameLabel setFont:[UIFont fontWithName:@"AppleSDGothicNeo-SemiBold" size:25]];
+    } else {
+        [cityNameLabel setFont:[UIFont fontWithName:@"AppleSDGothicNeo-SemiBold" size:45]];
+    }
     cityNameLabel.textColor = [UIColor whiteColor];
-    AnimatedLabelView *animatedCityLabel = [[AnimatedLabelView alloc] initWithLabel:cityNameLabel];
-
-    UILabel *timeLabel = [[UILabel alloc] init];
-    timeLabel.text = @"9:41 am";
-    [timeLabel setFont:[UIFont fontWithName:@"AppleSDGothicNeo-SemiBold" size:19]];
-    timeLabel.textColor = [UIColor whiteColor];
-
-    [cityAndTimeStack addArrangedSubview:animatedCityLabel];
-    [cityAndTimeStack addArrangedSubview:timeLabel];
-
-
-    //WeatherConditionView (Views right side)
-    WeatherConditionView *currentWeatherConditionView = [[WeatherConditionView alloc] init:@"meteorology"
-                                                                             tempInC:0];
-    currentWeatherConditionView.translatesAutoresizingMaskIntoConstraints = NO;
-    [currentWeatherView addSubview:currentWeatherConditionView];
+    cityNameLabel.translatesAutoresizingMaskIntoConstraints = NO;
 
     /*exp: Bottom Half*/
     /******************************/
@@ -139,7 +118,7 @@
 
     /******************************/
 
-    /*exp: constraints -> stack to view*/
+    /*exp: constraints -> hourlyForecastStack to view*/
     /******************************/
 
     NSLayoutConstraint *hourlyForecastStackToViewConstLeading = [NSLayoutConstraint constraintWithItem:hourlyForecastStack
@@ -176,10 +155,9 @@
 
     /******************************/
 
-    /*exp: constraints -> currentWeatherView to view and stack*/
+    /*exp: constraints -> cityNameLabel*/
     /******************************/
-
-    NSLayoutConstraint *currentWeatherViewToViewTop = [NSLayoutConstraint constraintWithItem:currentWeatherView
+    NSLayoutConstraint *cityNameLabelToViewConstTop = [NSLayoutConstraint constraintWithItem:cityNameLabel
                                                                           attribute:NSLayoutAttributeTop
                                                                           relatedBy:NSLayoutRelationEqual
                                                                           toItem:_view
@@ -187,134 +165,37 @@
                                                                           multiplier:1
                                                                           constant:0];
 
-    NSLayoutConstraint *currentWeatherViewToStackBottom = [NSLayoutConstraint constraintWithItem:currentWeatherView
-                                                                          attribute:NSLayoutAttributeBottom
-                                                                          relatedBy:NSLayoutRelationEqual
-                                                                          toItem:hourlyForecastStack
-                                                                          attribute:NSLayoutAttributeTopMargin
-                                                                          multiplier:1
-                                                                          constant:0];
+    NSLayoutConstraint *cityNameLabelToHourlyForecastStackConstBottom = [NSLayoutConstraint constraintWithItem:cityNameLabel
+                                                                                            attribute:NSLayoutAttributeBottom
+                                                                                            relatedBy:NSLayoutRelationEqual
+                                                                                            toItem:hourlyForecastStack
+                                                                                            attribute:NSLayoutAttributeTopMargin
+                                                                                            multiplier:1
+                                                                                            constant:0];
 
-    NSLayoutConstraint *currentWeatherViewToViewLeading = [NSLayoutConstraint constraintWithItem:currentWeatherView
-                                                                          attribute:NSLayoutAttributeLeading
-                                                                          relatedBy:NSLayoutRelationEqual
-                                                                          toItem:_view
-                                                                          attribute:NSLayoutAttributeLeadingMargin
-                                                                          multiplier:1
-                                                                          constant:0];
+    NSLayoutConstraint *cityNameLabelToViewConstLeading = [NSLayoutConstraint constraintWithItem:cityNameLabel
+                                                                              attribute:NSLayoutAttributeLeading
+                                                                              relatedBy:NSLayoutRelationEqual
+                                                                              toItem:_view
+                                                                              attribute:NSLayoutAttributeLeadingMargin
+                                                                              multiplier:1
+                                                                              constant:0];
 
-    NSLayoutConstraint *currentWeatherViewToViewTrainling = [NSLayoutConstraint constraintWithItem:currentWeatherView
-                                                                          attribute:NSLayoutAttributeTrailing
-                                                                          relatedBy:NSLayoutRelationEqual
-                                                                          toItem:_view
-                                                                          attribute:NSLayoutAttributeTrailingMargin
-                                                                          multiplier:1
-                                                                          constant:0];
-
+    NSLayoutConstraint *cityNameLabelToViewConstTrailing = [NSLayoutConstraint constraintWithItem:cityNameLabel
+                                                                               attribute:NSLayoutAttributeTrailing
+                                                                               relatedBy:NSLayoutRelationEqual
+                                                                               toItem:_view
+                                                                               attribute:NSLayoutAttributeTrailingMargin
+                                                                               multiplier:1
+                                                                               constant:0];
     /******************************/
-
-    /*exp: constraints -> currentWeatherConditionView to CurrentWeatherView*/
-    /******************************/
-
-    NSLayoutConstraint *currentWeatherConditionViewToCurrentWeatherViewTrailing = [NSLayoutConstraint constraintWithItem:currentWeatherConditionView
-                                                                                                      attribute:NSLayoutAttributeTrailing
-                                                                                                      relatedBy:NSLayoutRelationEqual
-                                                                                                      toItem:currentWeatherView
-                                                                                                      attribute:NSLayoutAttributeTrailingMargin
-                                                                                                      multiplier:1
-                                                                                                      constant:0];
-    NSLayoutConstraint *currentWeatherConditionViewToCurrentWeatherViewHeight = [NSLayoutConstraint constraintWithItem:currentWeatherConditionView
-                                                                                                    attribute:NSLayoutAttributeWidth
-                                                                                                    relatedBy:NSLayoutRelationEqual
-                                                                                                    toItem:currentWeatherView
-                                                                                                    attribute:NSLayoutAttributeWidth
-                                                                                                    multiplier:0.3
-                                                                                                    constant:0];
-    NSLayoutConstraint *currentWeatherConditionViewToCurrentWeatherViewTop = [NSLayoutConstraint constraintWithItem:currentWeatherConditionView
-                                                                                                 attribute:NSLayoutAttributeTop
-                                                                                                 relatedBy:NSLayoutRelationEqual
-                                                                                                 toItem:currentWeatherView
-                                                                                                 attribute:NSLayoutAttributeTopMargin
-                                                                                                 multiplier:1
-                                                                                                 constant:0];
-    NSLayoutConstraint *currentWeatherConditionViewToCurrentWeatherViewBottom = [NSLayoutConstraint constraintWithItem:currentWeatherConditionView
-                                                                                                    attribute:NSLayoutAttributeBottom
-                                                                                                    relatedBy:NSLayoutRelationEqual
-                                                                                                    toItem:currentWeatherView
-                                                                                                    attribute:NSLayoutAttributeBottomMargin
-                                                                                                    multiplier:1
-                                                                                                    constant:0];
-
-    /******************************/
-
-    /*exp: constraints -> cityAndTimeStack*/
-    /******************************/
-
-    //To CurrentWeatherView
-    NSLayoutConstraint *cityAndTimeStackToCurrentWeatherViewLeading = [NSLayoutConstraint constraintWithItem:cityAndTimeStack
-                                                                                          attribute:NSLayoutAttributeLeading
-                                                                                          relatedBy:NSLayoutRelationEqual
-                                                                                          toItem:currentWeatherView
-                                                                                          attribute:NSLayoutAttributeLeadingMargin
-                                                                                          multiplier:1
-                                                                                          constant:0];
-
-    NSLayoutConstraint *cityAndTimeStackToCurrentWeatherViewTop = [NSLayoutConstraint constraintWithItem:cityAndTimeStack
-                                                                                      attribute:NSLayoutAttributeTop
-                                                                                      relatedBy:NSLayoutRelationEqual
-                                                                                      toItem:currentWeatherView
-                                                                                      attribute:NSLayoutAttributeTopMargin
-                                                                                      multiplier:1
-                                                                                      constant:0];
-
-    NSLayoutConstraint *cityAndTimeStackToCurrentWeatherViewBottom = [NSLayoutConstraint constraintWithItem:cityAndTimeStack
-                                                                                         attribute:NSLayoutAttributeBottom
-                                                                                         relatedBy:NSLayoutRelationEqual
-                                                                                         toItem:currentWeatherView
-                                                                                         attribute:NSLayoutAttributeBottomMargin
-                                                                                         multiplier:1
-                                                                                         constant:0];
-
-    //To CurrentWeatherConditionView
-    NSLayoutConstraint *cityAndTimeStackToCurrentWeatherConditionViewTrailing = [NSLayoutConstraint constraintWithItem:cityAndTimeStack
-                                                                                                    attribute:NSLayoutAttributeTrailing
-                                                                                                    relatedBy:NSLayoutRelationEqual
-                                                                                                    toItem:currentWeatherConditionView
-                                                                                                    attribute:NSLayoutAttributeLeadingMargin
-                                                                                                    multiplier:1
-                                                                                                    constant:0];
-
-    /******************************/
-
-    /*Mark: Test*/
-    NSLayoutConstraint *testConstraint = [NSLayoutConstraint constraintWithItem:animatedCityLabel
-                                                             attribute:NSLayoutAttributeHeight
-                                                             relatedBy:NSLayoutRelationEqual
-                                                             toItem:timeLabel
-                                                             attribute:NSLayoutAttributeHeight
-                                                             multiplier:1
-                                                             constant:0];
-
-    NSLayoutConstraint *testConstraint2 = [NSLayoutConstraint constraintWithItem:animatedCityLabel
-                                                             attribute:NSLayoutAttributeTrailing
-                                                             relatedBy:NSLayoutRelationEqual
-                                                             toItem:cityAndTimeStack
-                                                             attribute:NSLayoutAttributeTrailingMargin
-                                                             multiplier:1
-                                                             constant:0];
 
     [_view addSubview:hourlyForecastStack];
-    [_view addSubview:currentWeatherView];
+    [_view addSubview:cityNameLabel];
     [_view addConstraints:@[hourlyForecastStackToViewConstLeading, hourlyForecastStackToViewConstTrailing,
-            hourlyForecastStackToViewConstHeight, hourlyForecastStackToViewConstBottom, currentWeatherViewToViewTop,
-            currentWeatherViewToStackBottom, currentWeatherViewToViewLeading, currentWeatherViewToViewTrainling,
-            currentWeatherConditionViewToCurrentWeatherViewTrailing,
-            currentWeatherConditionViewToCurrentWeatherViewHeight, currentWeatherConditionViewToCurrentWeatherViewTop,
-            currentWeatherConditionViewToCurrentWeatherViewBottom, cityAndTimeStackToCurrentWeatherViewLeading,
-            cityAndTimeStackToCurrentWeatherViewTop, cityAndTimeStackToCurrentWeatherViewBottom,
-            cityAndTimeStackToCurrentWeatherConditionViewTrailing, testConstraint, testConstraint2]];
-
-    [animatedCityLabel startAnimation];
+            hourlyForecastStackToViewConstHeight, hourlyForecastStackToViewConstBottom, cityNameLabelToViewConstTop,
+            cityNameLabelToHourlyForecastStackConstBottom, cityNameLabelToViewConstLeading,
+            cityNameLabelToViewConstTrailing]];
 
     /************************************************************************************************/
 
